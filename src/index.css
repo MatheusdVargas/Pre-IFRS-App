@@ -1,0 +1,312 @@
+/* src/index.css - CSS Básico para Layout e Leitura */
+
+:root {
+    --color-primary: #1b3922; /* Azul */
+    --color-secondary: #396b1d; /* Índigo */
+    --color-text: #1f2937;
+    --color-background: #f9fafb;
+    --color-white: #ffffff;
+    --color-gray-light: #f3f4f6;
+    --color-gray-medium: #6b7280;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+/* 1. LAYOUT GERAL */
+#root { /* Onde o Vite renderiza */
+    min-height: 100vh;
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+.main-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 15px;
+}
+
+.page-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* 2. HEADER */
+#header {
+    display: fixed;
+    background: linear-gradient(to bottom, var(--color-primary), var(--color-secondary));
+    color: var(--color-white);
+    padding: 15px 0;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-link {
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 5px 0;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.login-button {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+/* 3. HOME - HERO SECTION */
+#hero {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    padding: 60px 0;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;      /* Alinha verticalmente */
+    justify-content: space-between; /* Espaço entre texto e imagem */
+    gap: 30px;
+    flex-wrap: wrap;         /* Responsivo para telas menores */
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 50%;
+}
+
+.hero-text h2 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.hero-text p {
+    margin-top: 15px;
+    font-size: 1.125rem;
+}
+
+.hero-actions {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+}
+
+.action-button-primary {
+    background-color: #73b249; /* Amarelo */
+    color: var(--color-gray-light);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.action-button-secondary {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: var(--color-white);
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.hero-stats {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.stat-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* 4. HOME - CARDS SECTION */
+#home-cards {
+    margin: 20px auto;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: var(--color-white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* 5. FOOTER */
+#footer {
+    margin-top: 50px;
+    background-color: var(--color-white);
+    border-top: 1px solid #e5e7eb;
+}
+
+.footer-content {
+    padding: 20px 15px;
+    font-size: 0.875rem;
+    color: #4b5563;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* 6. QUESTÕES/SIMULADO/RANKING (Estilos para Conteúdo) */
+.question-item, .simulado-box, .ranking-box {
+    background-color: var(--color-white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.choices-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    display: grid;
+    gap: 10px;
+}
+
+.choice-button {
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: transparent;
+    transition: background-color 0.1s;
+}
+
+.choice-button:hover:not(:disabled) {
+    background-color: var(--color-gray-light);
+}
+
+/* SIMULADO FEEDBACK */
+.resolution-box {
+    margin-top: 8px;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.res-correct {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1px solid #10b981;
+}
+
+.res-incorrect {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #ef4444;
+}
+
+.next-button {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.next-button:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+}
+
+/* RANKING */
+.ranking-list {
+    list-style: none;
+    padding: 0;
+}
+
+.ranking-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+.imagem-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-primary);
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    flex: 1;
+    max-width: 50%;
+    margin: 0;              /* remove margens desnecessárias */
+}
+
+.imagem-container img {
+    width: 100%;
+    max-width: 350px;       /* define um tamanho padrão para ambas */
+    height: auto;
+    object-fit: cover;      /* mantém proporção */
+    border-radius: 8px;
+    filter: drop-shadow(0 0 1rem #2b5c37);
+}
+
+/* Remova ou substitua regras antigas */
+#img01 {
+    width: 100%;            /* iguala o tamanho das imagens */
+}
+#img02 {
+    width: 40%;
+    margin-left: -165px;
+    margin-top: 10px;
+}
+
